@@ -1,0 +1,191 @@
+.sweet-text {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sweet-select {
+  width: 100%;
+  border: 2px solid #202424;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-bottom: 40px;
+}
+
+.sweet-item {
+  border: 1px solid;
+  border-radius: 16px;
+  padding: 16px;
+  width: 100%;
+}
+
+.sweet-img {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.sweet-overtitle {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.sweet-title {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.sweet-description {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.sweet-list-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sweet-price {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.sweet-list-svg {
+  padding: 10px;
+  border: 2px solid;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 250ms linear;
+}
+
+.sweet-list {
+  margin-bottom: 40px;
+}
+
+.sweet-list-btn {
+  padding: 12px;
+}
+
+@media screen and (min-width: 768px) {
+  .sweet-list-section-container {
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+    margin-bottom: 40px;
+  }
+
+  .sweet-list-section .section-title {
+    text-align: left;
+    margin-bottom: 8px;
+  }
+
+  .sweet-text {
+    margin-bottom: 0;
+  }
+
+  .sweet-form {
+    flex-grow: 1;
+  }
+
+  .sweet-select {
+    margin-bottom: 0;
+  }
+
+  .sweet-list {
+    display: flex;
+    gap: 32px 16px;
+  }
+
+  .sweet-item {
+    width: calc((100% - 16px) / 2);
+  }
+
+  .sweet-list-svg:hover,
+  .sweet-list-svg:focus {
+    background-color: #f19898;
+  }
+
+  .sweet-list-svg:active {
+    background-color: #c07979;
+  }
+
+  .sweet-list-section .sweet-list-btn {
+    width: 344px;
+  }
+}
+
+@media screen and (max-width: 1439px) {
+  .sweet-categories {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .sweet-list-section-container {
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  .sweet-list-section .section-title {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 24px;
+  }
+
+  .sweet-text {
+    margin-bottom: 40px;
+  }
+
+  .sweet-form {
+    display: none;
+  }
+
+  .sweet-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 32px;
+    justify-content: center;
+  }
+
+  .sweet-categories-link {
+    font-weight: 500;
+    border: 2px solid;
+    border-radius: 100px;
+    padding: 8px 23px;
+    display: block;
+    transition: background-color 250ms linear;
+  }
+
+  .sweet-categories-link:hover,
+  .sweet-categories-link:focus {
+    background-color: #f19898;
+  }
+
+  .sweet-categories-link:focus,
+  .sweet-categories-link.active {
+    background-color: #c07979;
+  }
+
+  .sweet-list {
+    gap: 40px 24px;
+  }
+
+  .sweet-item {
+    width: calc((100% - (24px * 3)) / 4);
+  }
+
+  .sweet-list-svg:hover,
+  .sweet-list-svg:focus {
+    background-color: #f19898;
+  }
+
+  .sweet-list-svg:active {
+    background-color: #c07979;
+  }
+
+  .sweet-list-section .sweet-list-btn {
+    width: 344px;
+  }
+}
