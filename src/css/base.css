@@ -1,5 +1,6 @@
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -9,6 +10,12 @@ body {
   background-color: #f5fdfd;
   margin: 0;
   line-height: 1.5;
+  overflow-x: hidden;
+}
+html:has(.product-modal-backdrop.is-open),
+html:has(.mobile-menu.is-open),
+body:has(.mobile-menu.is-open) {
+  overflow: hidden;
 }
 
 ul {
@@ -33,10 +40,15 @@ svg {
 }
 
 button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
   box-sizing: border-box;
   border: none;
   background-color: transparent;
   padding: 0;
+  cursor: pointer;
 }
 
 h1,
@@ -77,12 +89,22 @@ p {
     background-color 250ms linear;
 }
 
-.btn:hover,
-.btn:focus {
+.btn:focus-visible {
   border-color: #080c0c;
   background-color: #f5fdfd;
 }
 
 .btn:active {
   background-color: #f5b6b6;
+}
+
+@media (hover: hover) {
+  .btn:hover {
+    border-color: #080c0c;
+    background-color: #f5fdfd;
+  }
+  .btn:hover:active {
+    border-color: #080c0c;
+    background-color: #f5fdfd;
+  }
 }

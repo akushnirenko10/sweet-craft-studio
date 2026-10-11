@@ -7,8 +7,12 @@
 }
 
 .burger-menu {
-  width: 48px;
-  height: 48px;
+  padding: 12px;
+  color: #080c0c;
+}
+
+.burger-menu-svg {
+  fill: currentColor;
 }
 
 .nav {

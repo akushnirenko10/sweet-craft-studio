@@ -12,7 +12,16 @@
   margin-bottom: 40px;
 }
 
+.sweet-list {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
 .sweet-item {
+  display: flex;
+  flex-direction: column;
   border: 1px solid;
   border-radius: 16px;
   padding: 16px;
@@ -42,6 +51,7 @@
 }
 
 .sweet-list-inner {
+  margin-top: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,7 +62,7 @@
   font-size: 20px;
 }
 
-.sweet-list-svg {
+.sweet-list-item-btn {
   padding: 10px;
   border: 2px solid;
   border-radius: 100px;
@@ -60,8 +70,16 @@
   transition: background-color 250ms linear;
 }
 
-.sweet-list {
-  margin-bottom: 40px;
+.sweet-list-item-btn:focus-visible {
+  background-color: #f19898;
+}
+
+.sweet-list-item-btn:active {
+  background-color: #c07979;
+}
+
+.sweet-list-svg {
+  fill: currentColor;
 }
 
 .sweet-list-btn {
@@ -94,21 +112,13 @@
   }
 
   .sweet-list {
-    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 32px 16px;
   }
 
   .sweet-item {
     width: calc((100% - 16px) / 2);
-  }
-
-  .sweet-list-svg:hover,
-  .sweet-list-svg:focus {
-    background-color: #f19898;
-  }
-
-  .sweet-list-svg:active {
-    background-color: #c07979;
   }
 
   .sweet-list-section .sweet-list-btn {
@@ -149,22 +159,20 @@
     justify-content: center;
   }
 
-  .sweet-categories-link {
+  .sweet-categories-btn {
     font-weight: 500;
     border: 2px solid;
     border-radius: 100px;
-    padding: 8px 23px;
+    padding: 8px 22px;
     display: block;
     transition: background-color 250ms linear;
   }
 
-  .sweet-categories-link:hover,
-  .sweet-categories-link:focus {
+  .sweet-categories-btn:focus-visible {
     background-color: #f19898;
   }
 
-  .sweet-categories-link:focus,
-  .sweet-categories-link.active {
+  .sweet-categories-btn.active {
     background-color: #c07979;
   }
 
@@ -176,16 +184,19 @@
     width: calc((100% - (24px * 3)) / 4);
   }
 
-  .sweet-list-svg:hover,
-  .sweet-list-svg:focus {
+  .sweet-list-section .sweet-list-btn {
+    width: 344px;
+  }
+}
+
+@media (hover: hover) {
+  .sweet-categories-btn:hover,
+  .sweet-list-item-btn:hover {
     background-color: #f19898;
   }
 
-  .sweet-list-svg:active {
+  .sweet-categories-btn:hover:active,
+  .sweet-list-item-btn:hover:active {
     background-color: #c07979;
-  }
-
-  .sweet-list-section .sweet-list-btn {
-    width: 344px;
   }
 }
