@@ -21,36 +21,38 @@
       referrerpolicy="no-referrer"
     />
     <script type="module" crossorigin src="/sweet-craft-studio/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/sweet-craft-studio/assets/index-Dv5LyBIk.css">
+    <link rel="modulepreload" crossorigin href="/sweet-craft-studio/assets/vendor-C7N43mRl.js">
+    <link rel="stylesheet" crossorigin href="/sweet-craft-studio/assets/vendor-CaqNZoUd.css">
+    <link rel="stylesheet" crossorigin href="/sweet-craft-studio/assets/index-D_hwMKft.css">
   </head>
   <body>
     <main>
       <header>
   <div class="container">
     <div class="header-wrapper">
-      <a href="../index.html">
+      <a href="./index.html">
         <svg class="logo" width="145" height="30">
-          <use href="../img/sprite.svg#logo"></use>
+          <use href="/sweet-craft-studio/assets/sprite-D2XxoFka.svg#logo"></use>
         </svg>
       </a>
       <button type="button" class="burger-menu">
-        <svg width="24" height="24">
-          <use href="../img/sprite.svg#menu"></use>
+        <svg class="burger-menu-svg" width="24" height="24">
+          <use href="/sweet-craft-studio/assets/sprite-D2XxoFka.svg#menu"></use>
         </svg>
       </button>
       <nav class="nav">
         <ul class="nav-list">
           <li class="nav-item">
-            <a href="" class="nav-link">Солодощі</a>
+            <a href="#sweet-list-section" class="nav-link">Солодощі</a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">Про нас</a>
+            <a href="#about" class="nav-link">Про нас</a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">Відгуки</a>
+            <a href="#feedbacks" class="nav-link">Відгуки</a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">Часті питання</a>
+            <a href="#faq" class="nav-link">Часті питання</a>
           </li>
         </ul>
         <button type="button" class="btn nav-btn">До покупок</button>
@@ -87,115 +89,84 @@
       </form>
       <ul class="sweet-categories">
         <li class="sweet-categories-item">
-          <a href="" class="sweet-categories-link">Всі десерти</a>
+          <button type="button" class="sweet-categories-btn active">
+            Всі десерти
+          </button>
         </li>
       </ul>
     </div>
 
-    <ul class="sweet-list">
-      <li class="sweet-item">
-        <img class="sweet-img" src="../img/test-mobile.jpg" alt="" />
-        <p class="sweet-overtitle">Гарячі десерти</p>
-        <h3 class="sweet-title">Шоколадний фондан</h3>
-        <p class="sweet-description">
-          Класичний десерт з рідким шоколадним центром.
-        </p>
-        <div class="sweet-list-inner">
-          <p class="sweet-price">120 грн</p>
-          <button type="button">
-            <svg class="sweet-list-svg" width="24" height="24">
-              <use href="../img/sprite.svg#arrow_outward"></use>
-            </svg>
-          </button>
-        </div>
-      </li>
-
-      <li class="sweet-item">
-        <img class="sweet-img" src="../img/test-mobile.jpg" alt="" />
-        <p class="sweet-overtitle">Гарячі десерти</p>
-        <h3 class="sweet-title">Шоколадний фондан</h3>
-        <p class="sweet-description">
-          Класичний десерт з рідким шоколадним центром.
-        </p>
-        <div class="sweet-list-inner">
-          <p class="sweet-price">120 грн</p>
-          <button type="button">
-            <svg class="sweet-list-svg" width="24" height="24">
-              <use href="../img/sprite.svg#arrow_outward"></use>
-            </svg>
-          </button>
-        </div>
-      </li>
-
-      <li class="sweet-item">
-        <img class="sweet-img" src="../img/test-mobile.jpg" alt="" />
-        <p class="sweet-overtitle">Гарячі десерти</p>
-        <h3 class="sweet-title">Шоколадний фондан</h3>
-        <p class="sweet-description">
-          Класичний десерт з рідким шоколадним центром.
-        </p>
-        <div class="sweet-list-inner">
-          <p class="sweet-price">120 грн</p>
-          <button type="button">
-            <svg class="sweet-list-svg" width="24" height="24">
-              <use href="../img/sprite.svg#arrow_outward"></use>
-            </svg>
-          </button>
-        </div>
-      </li>
-
-      <li class="sweet-item">
-        <img class="sweet-img" src="../img/test-mobile.jpg" alt="" />
-        <p class="sweet-overtitle">Гарячі десерти</p>
-        <h3 class="sweet-title">Шоколадний фондан</h3>
-        <p class="sweet-description">
-          Класичний десерт з рідким шоколадним центром.
-        </p>
-        <div class="sweet-list-inner">
-          <p class="sweet-price">120 грн</p>
-          <button type="button">
-            <svg class="sweet-list-svg" width="24" height="24">
-              <use href="../img/sprite.svg#arrow_outward"></use>
-            </svg>
-          </button>
-        </div>
-      </li>
-    </ul>
+    <ul class="sweet-list"></ul>
+    <span class="loader"></span>
     <button class="btn sweet-list-btn" type="button">Завантажити ще</button>
   </div>
 </section>
 
       
-      
+      <section class="feedback section" id="feedback">
+  <div class="container">
+    <h2 class="section-title feedback-title">Відгуки клієнтів</h2>
+    <p class="feedback-text">Найкращі десерти, які я коли-небудь куштував!</p>
+
+    <div class="feedback-slider">
+      <div class="feedback-swiper swiper">
+        <div class="feedback-swiper-wrapper swiper-wrapper"></div>
+      </div>
+
+      <div class="feedback-nav-wrapper">
+        <div class="feedback-swiper-pagination swiper-pagination"></div>
+        <ul class="feedback-nav-list">
+          <li class="feedback-nav-item">
+            <button class="feedback-nav-btn swiper-button-prev" type="button">
+              <svg class="feedback-nav-icon" width="24" height="24">
+                <use href="/sweet-craft-studio/assets/sprite-D2XxoFka.svg#arrow_back"></use>
+              </svg>
+            </button>
+          </li>
+          <li class="feedback-nav-item">
+            <button class="feedback-nav-btn swiper-button-next" type="button">
+              <svg class="feedback-nav-icon" width="24" height="24">
+                <use href="/sweet-craft-studio/assets/sprite-D2XxoFka.svg#arrow_forward"></use>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
       
       
       <div class="mobile-menu">
   <div class="container">
     <div class="header-wrapper">
-      <a href="../index.html">
+      <a href="./index.html">
         <svg width="145" height="30">
-          <use href="../img/sprite.svg#logo"></use>
+          <use href="/sweet-craft-studio/assets/sprite-D2XxoFka.svg#logo"></use>
         </svg>
       </a>
-      <button type="button" class="burger-menu">
-        <svg width="24" height="24">
-          <use href="../img/sprite.svg#close"></use>
+      <button type="button" class="close-modal-btn mobile-menu-close-btn">
+        <svg class="close-modal-svg" width="24" height="24">
+          <use href="/sweet-craft-studio/assets/sprite-D2XxoFka.svg#close"></use>
         </svg>
       </button>
     </div>
     <nav class="mobile-menu-nav">
       <ul class="mobile-menu-nav-list">
         <li class="mobile-menu-nav-item">
-          <a href="" class="mobile-menu-nav-link">Солодощі</a>
+          <a href="#sweet-list-section" class="mobile-menu-nav-link"
+            >Солодощі</a
+          >
         </li>
         <li class="mobile-menu-nav-item">
-          <a href="" class="mobile-menu-nav-link">Про нас</a>
+          <a href="#about" class="mobile-menu-nav-link">Про нас</a>
         </li>
         <li class="mobile-menu-nav-item">
-          <a href="" class="mobile-menu-nav-link">Відгуки</a>
+          <a href="#feedbacks" class="mobile-menu-nav-link">Відгуки</a>
         </li>
         <li class="mobile-menu-nav-item">
-          <a href="" class="mobile-menu-nav-link">Часті питання</a>
+          <a href="#faq" class="mobile-menu-nav-link">Часті питання</a>
         </li>
       </ul>
       <button type="button" class="btn mobile-menu-nav-btn">До покупок</button>
@@ -203,40 +174,7 @@
   </div>
 </div>
 
-      <div class="producuct-modal-backdrop">
-  <div class="container">
-    <div class="product-modal">
-      <button class="product-modal-btn" type="button">
-        <svg class="product-modal-svg" width="24px" height="24px">
-          <use href="../img/sprite.svg#close"></use>
-        </svg>
-      </button>
-      <img
-        class="product-modal-img"
-        src="../img/test-mobile.jpg"
-        alt=""
-        width="640"
-        height="480"
-      />
-      <h2 class="product-modal-title">Шоколадний фондан</h2>
-      <p class="product-modal-price">120 грн</p>
-      <ul class="product-modal-rating">
-        <li class="product-modal-rating-item">
-          <svg class="star-icon" width="24" height="24">
-            <use href="../img/sprite.svg#star"></use>
-          </svg>
-        </li>
-      </ul>
-      <p class="product-modal-descr">
-        Класичний десерт з рідким шоколадним центром.
-      </p>
-      <p class="product-modal-ingredients">
-        Склад: Шоколад, яйця, цукор, масло, борошно.
-      </p>
-      <button class="btn" type="button">Перейти до замовлення</button>
-    </div>
-  </div>
-</div>
+      <div class="product-modal-backdrop"></div>
 
       
     </main>
