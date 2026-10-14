@@ -20,7 +20,7 @@ import {
   showToast,
   updateLoadMoreBtn,
 } from './helpers';
-import { feedbacksLimit, limit } from './constants';
+import { feedbacksLimit, limit, LOCAL_STORAGE_KEY } from './constants';
 import { createFeedbackSwiper } from './swiper';
 
 let page = 1;
@@ -42,7 +42,7 @@ export async function initPage() {
   }
   loadDessertsList(categoryId);
 
-  // FEEDBACKS
+  // =====================FEEDBACKS=========
   try {
     const { feedbacks, total } = await getFeedbacks(
       feedbacksPage,
@@ -60,6 +60,7 @@ export async function initPage() {
   createFeedbackSwiper(loadMoreFeedbacks);
 }
 
+// ==============SHOW MORE BTN===================
 export async function onShowMoreProductsBtn() {
   page += 1;
   showLoader();
@@ -78,6 +79,7 @@ export async function onShowMoreProductsBtn() {
   }
 }
 
+// ====================CATEGORY ITEM CLICK================
 export async function onCategoryItemClick(e) {
   if (e.target.nodeName !== 'BUTTON') return;
   showLoader();
@@ -114,28 +116,125 @@ async function loadDessertsList(categoryId) {
   }
 }
 
+// ==============PRODUCT MODAL=================
 export async function onOpenDessertModalBtnClick(e) {
   const btn = e.target.closest('.sweet-list-item-btn');
   if (!btn) return;
 
-  const dessertId = btn.dataset.id;
-  const dessertDetails = await getDessertById(dessertId);
-  createProductModalMarkup(dessertDetails);
-  openProductDetailsModal();
+  await showDessertDetails(btn.dataset.id);
+}
+
+async function showDessertDetails(dessertId) {
+  try {
+    const dessertDetails = await getDessertById(dessertId);
+    createProductModalMarkup(dessertDetails);
+    openProductDetailsModal();
+    const openOrderModalBtnEl = document.querySelector(
+      '.product-modal-order-btn'
+    );
+    openOrderModalBtnEl.addEventListener('click', () =>
+      onOpenOrderModalBtnClick(dessertId)
+    );
+  } catch (err) {
+    showToast('error', `Помилка отримання десерту по ID: ${err}`);
+  }
 }
 
 function openProductDetailsModal() {
   refs.productDetailsModal.classList.add('is-open');
-  const productDetailsModalCloseBtnEl =
-    document.querySelector('.product-modal-btn');
-  productDetailsModalCloseBtnEl.addEventListener(
+
+  refs.productModalCloseBtn.addEventListener(
     'click',
     onProductDetailsModalCloseBtn
   );
+  refs.productDetailsModal.addEventListener('click', onBackdropClick);
+  window.addEventListener('keydown', onProductModalEscPress);
+}
+
+export function closeProductModal() {
+  refs.productDetailsModal.classList.remove('is-open');
+
+  refs.productModalCloseBtn.removeEventListener(
+    'click',
+    onProductDetailsModalCloseBtn
+  );
+  refs.productDetailsModal.removeEventListener('click', onBackdropClick);
+  window.removeEventListener('keydown', onProductModalEscPress);
 }
 
 export function onProductDetailsModalCloseBtn() {
-  refs.productDetailsModal.classList.remove('is-open');
+  closeProductModal();
+}
+
+function onBackdropClick(e) {
+  if (e.target !== e.currentTarget) return;
+  closeProductModal();
+}
+
+function onProductModalEscPress(e) {
+  if (e.key === 'Escape') {
+    closeProductModal();
+  }
+}
+
+// ====================ORDER MODAL=================
+function onOpenOrderModalBtnClick(dessertId) {
+  closeProductModal();
+  refs.orderModal.classList.add('is-open');
+  refs.closeOrderModalBtn.addEventListener('click', () =>
+    onCloseOrderModalBtnClick(dessertId)
+  );
+  refs.orderModal.addEventListener('click', e =>
+    onOrderModalBackdropClick(e, dessertId)
+  );
+  window.addEventListener('keydown', e => onOrderModalEscPress(e, dessertId));
+
+  refs.orderModalForm.addEventListener('input', e =>
+    onOrderModalFormInput(e, dessertId)
+  );
+  refs.orderModalForm.addEventListener('submit', e =>
+    onSubmitOrderBtnClick(e, dessertId)
+  );
+}
+
+function onCloseOrderModalBtnClick(dessertId) {
+  closeOrderModal();
+  showDessertDetails(dessertId);
+}
+
+function onOrderModalBackdropClick(e, dessertId) {
+  if (e.target !== e.currentTarget) return;
+  closeOrderModal();
+  showDessertDetails(dessertId);
+}
+
+function onOrderModalEscPress(e, dessertId) {
+  if (e.key === 'Escape') {
+    closeOrderModal();
+    showDessertDetails(dessertId);
+  }
+}
+
+function closeOrderModal() {
+  refs.orderModal.classList.remove('is-open');
+
+  refs.closeOrderModalBtn.removeEventListener(
+    'click',
+    onCloseOrderModalBtnClick
+  );
+  refs.orderModal.removeEventListener('click', onOrderModalBackdropClick);
+  window.removeEventListener('keydown', onOrderModalEscPress);
+  refs.orderModalForm.removeEventListener('click', onSubmitOrderBtnClick);
+}
+
+function onOrderModalFormInput(e, dessertId) {
+  const formData = new FormData(e.currentTarget);
+  const userOrder = { ...Object.fromEntries(formData), dessertId };
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(userOrder));
+}
+
+async function onSubmitOrderBtnClick(e, dessertId) {
+  e.preventDefault();
 }
 
 //============ MOBILE MENU HANDLERS============

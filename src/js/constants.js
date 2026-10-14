@@ -11,3 +11,5 @@ export const ENDPOINTS = {
 
 export const limit = 8;
 export const feedbacksLimit = 10;
+
+export const LOCAL_STORAGE_KEY = 'userOrder';

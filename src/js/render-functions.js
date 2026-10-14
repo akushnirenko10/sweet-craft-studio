@@ -1,6 +1,7 @@
 import { refs } from './refs';
 import iconsUrl from '../img/sprite.svg';
 import 'css-star-rating/css/star-rating.css';
+import { slimSelect } from './sweet-list-select';
 
 export function createDessertCategoriesMarkup(categoriesList) {
   if (window.innerWidth >= 1440) {
@@ -12,13 +13,17 @@ export function createDessertCategoriesMarkup(categoriesList) {
       markup
     );
   } else {
-    const markup = categoriesList
-      .map(createDessertCategoryMarkupForMobileAndTablet)
-      .join('');
-    refs.dessertCategoriesListForMobileAndTablet.insertAdjacentHTML(
-      'beforeend',
-      markup
-    );
+    slimSelect.setData([
+      { text: 'Всі десерти', value: '' },
+      ...categoriesList.map(({ name, _id }) => ({ text: name, value: _id })),
+    ]);
+    // const markup = categoriesList
+    //   .map(createDessertCategoryMarkupForMobileAndTablet)
+    //   .join('');
+    // refs.dessertCategoriesListForMobileAndTablet.insertAdjacentHTML(
+    //   'beforeend',
+    //   markup
+    // );
   }
 }
 
@@ -28,9 +33,9 @@ function createDessertCategoryMarkupForDesktop({ name, _id }) {
         </li>`;
 }
 
-function createDessertCategoryMarkupForMobileAndTablet({ name, _id }) {
-  return `<option value="${_id}">${name}</option>`;
-}
+// function createDessertCategoryMarkupForMobileAndTablet({ name, _id }) {
+//   return `<option value="${_id}">${name}</option>`;
+// }
 
 export function createDessertsListMarkup(dessertsList) {
   const markup = dessertsList.map(createDessertMarkup).join('');
@@ -57,7 +62,7 @@ function createDessertMarkup({
           <p class="sweet-price">${price} грн</p>
           <button type="button" class="sweet-list-item-btn" data-id="${_id}">
             <svg class="sweet-list-svg" width="24" height="24">
-              <use href="./img/sprite.svg#arrow_outward"></use>
+              <use href="${iconsUrl}#arrow_outward"></use>
             </svg>
           </button>
         </div>
@@ -108,13 +113,6 @@ export function createProductModalMarkup({
   const ratingStarsMarkup = createRatingStarsMarkup();
   const ratingClass = createClassFromRate(rate);
   const markup = `
-  <div class="container">
-    <div class="product-modal section container">
-      <button class="close-modal-btn product-modal-btn" type="button">
-        <svg class="close-modal-svg" width="24px" height="24px">
-          <use href="${iconsUrl}#close"></use>
-        </svg>
-      </button>
       <img class="product-modal-img" src="${image}" />
       <div class="product-modal-details">
         <h2 class="product-modal-title">${name}</h2>
@@ -137,7 +135,7 @@ export function createProductModalMarkup({
         </div>
     </div>
   </div>`;
-  refs.productDetailsModal.innerHTML = markup;
+  refs.productDetailsModalWrapper.innerHTML = markup;
 }
 
 function createRatingStarsMarkup() {

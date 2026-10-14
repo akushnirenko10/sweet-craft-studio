@@ -1,6 +1,7 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import { refs } from './refs';
+import { LOCAL_STORAGE_KEY } from './constants';
 
 export function showLoader() {
   refs.loader.classList.add('visible');
@@ -48,3 +49,11 @@ export function updateLoadMoreBtn(page, totalPages) {
     hideLoadMoreBtn();
   }
 }
+
+// export function saveToLS(value) {
+//   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(value));
+// }
+
+// export function getFromLS() {
+//   return JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || '';
+// }

@@ -12,9 +12,10 @@ body {
   line-height: 1.5;
   overflow-x: hidden;
 }
+
+html:has(.contact-modal-backdrop.is-open),
 html:has(.product-modal-backdrop.is-open),
-html:has(.mobile-menu.is-open),
-body:has(.mobile-menu.is-open) {
+html:has(.mobile-menu.is-open) {
   overflow: hidden;
 }
 
@@ -106,5 +107,11 @@ p {
   .btn:hover:active {
     border-color: #080c0c;
     background-color: #f5fdfd;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .section-title {
+    font-size: 48px;
   }
 }

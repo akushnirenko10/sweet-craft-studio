@@ -9,7 +9,7 @@
   margin-bottom: 40px;
 }
 
-.feedback-swiper-wrapper {
+.feedback-swiper {
   margin-bottom: 32px;
 }
 
@@ -39,10 +39,10 @@
 .feedback-description {
   font-size: 18px;
   margin-bottom: 24px;
+  flex-grow: 1;
 }
 
 .feedback-name {
-  margin-top: auto;
   font-weight: 600;
 }
 
@@ -71,6 +71,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 250ms linear;
 }
 
 .feedback-nav-btn:active {
@@ -102,7 +103,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .feedback-swiper-wrapper {
+  .feedback-swiper {
     margin-bottom: 48px;
   }
 
@@ -139,6 +140,11 @@
   .feedback-swiper-slide {
     padding: 32px;
   }
+
+  .feedback-text {
+    margin-bottom: 80px;
+  }
+
   .feedback-description {
     margin-bottom: 48px;
   }

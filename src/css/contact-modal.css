@@ -1,0 +1,105 @@
+.contact-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: flex;
+  z-index: 100;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 250ms linear,
+    visibility 250ms linear;
+}
+
+.contact-modal-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.contact-modal-backdrop > .container {
+  margin: auto;
+  pointer-events: none;
+}
+
+.contact-modal {
+  position: relative;
+  width: 100%;
+  max-width: 768px;
+  background-color: #f5fdfd;
+  border-radius: 16px;
+  pointer-events: auto;
+}
+
+.contact-modal-backdrop .contact-modal {
+  transform: scale(0.5);
+  transition: transform 250ms linear;
+}
+
+.contact-modal-backdrop.is-open .contact-modal {
+  transform: scale(1);
+}
+
+.contact-modal-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.contact-modal-btn.close-modal-btn {
+  padding: 4px;
+}
+
+.contact-modal .section-title {
+  margin-bottom: 48px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-name-label,
+.contact-tel-label,
+.contact-comment-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-name-input,
+.contact-tel-input,
+.contact-comment-textarea {
+  display: block;
+  width: 100%;
+  border: 2px solid #080c0c;
+  border-radius: 12px;
+  padding: 8px 12px;
+}
+
+.contact-name-input:focus-visible,
+.contact-tel-input:focus-visible,
+.contact-comment-textarea:focus-visible {
+  outline: none;
+  border: 2px solid #f19898;
+}
+
+.contact-comment-textarea {
+  height: 180px;
+  resize: none;
+}
+
+.contact-modal-submit-btn {
+  padding: 9px 24px;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 768px) {
+  .contact-modal-submit-btn {
+    max-width: 344px;
+  }
+}

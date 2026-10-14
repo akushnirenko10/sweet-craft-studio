@@ -4,13 +4,23 @@
   margin-bottom: 40px;
 }
 
-.sweet-select {
-  width: 100%;
+.sweet-form {
+  margin-bottom: 40px;
   border: 2px solid #202424;
   border-radius: 6px;
-  padding: 8px 12px;
-  margin-bottom: 40px;
+  overflow: hidden;
 }
+
+/* .sweet-select {
+  display: block;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+
+  padding: 8px 12px;
+} */
 
 .sweet-list {
   margin-bottom: 40px;
