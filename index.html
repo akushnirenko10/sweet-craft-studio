@@ -21,9 +21,9 @@
       referrerpolicy="no-referrer"
     />
     <script type="module" crossorigin src="/sweet-craft-studio/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/sweet-craft-studio/assets/vendor-C7N43mRl.js">
+    <link rel="modulepreload" crossorigin href="/sweet-craft-studio/assets/vendor-CyF0_Zip.js">
     <link rel="stylesheet" crossorigin href="/sweet-craft-studio/assets/vendor-CaqNZoUd.css">
-    <link rel="stylesheet" crossorigin href="/sweet-craft-studio/assets/index-D_hwMKft.css">
+    <link rel="stylesheet" crossorigin href="/sweet-craft-studio/assets/index-DVhB19zN.css">
   </head>
   <body>
     <main>
@@ -82,8 +82,8 @@
           Спробуйте наші смачні десерти, які вас здивують!
         </p>
       </div>
-      <form class="sweet-form" action="">
-        <select class="sweet-select" name="" id="">
+      <form class="sweet-form">
+        <select class="sweet-select" name="dessertCategory">
           <option value="">Всі десерти</option>
         </select>
       </form>
@@ -174,9 +174,65 @@
   </div>
 </div>
 
-      <div class="product-modal-backdrop"></div>
+      <div class="product-modal-backdrop">
+  <div class="container section">
+    <div class="product-modal section container">
+      <button class="close-modal-btn product-modal-btn" type="button">
+        <svg class="close-modal-svg" width="24px" height="24px">
+          <use href="../img/sprite.svg#close"></use>
+        </svg>
+      </button>
+      <div class="product-modal-wrapper"></div>
+    </div>
+  </div>
+</div>
 
-      
+      <div class="contact-modal-backdrop">
+  <div class="container section">
+    <div class="contact-modal section container">
+      <button class="close-modal-btn contact-modal-btn" type="button">
+        <svg class="close-modal-svg" width="24px" height="24px">
+          <use href="../img/sprite.svg#close"></use>
+        </svg>
+      </button>
+      <div class="contact-modal-wrapper">
+        <h2 class="section-title">Офомлення замовлення</h2>
+        <form class="contact-form">
+          <label class="contact-name-label"
+            >Ім’я*
+            <input
+              type="text"
+              class="contact-name-input"
+              placeholder="Вікторія"
+              name="name"
+            />
+          </label>
+          <label class="contact-tel-label">
+            Телефон*
+            <input
+              type="tel"
+              class="contact-tel-input"
+              placeholder="38 0__ _______"
+              name="tel"
+            />
+          </label>
+          <label class="contact-comment-label"
+            >Коментар*
+            <textarea
+              class="contact-comment-textarea"
+              placeholder="Ваш коментар"
+              name="comment"
+            ></textarea>
+          </label>
+          <button class="btn contact-modal-submit-btn" type="submit">
+            Надіслати заявку
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
     </main>
   </body>
 </html>
